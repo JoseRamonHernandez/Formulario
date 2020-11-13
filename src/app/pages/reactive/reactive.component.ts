@@ -33,6 +33,14 @@ this.crearFormulario();
     return this.forma.get('correo').invalid && this.forma.get('correo').touched
   }
 
+get distritoNoValido(){
+    return this.forma.get('direccion.distrito').invalid && this.forma.get('direccion.distrito').touched
+  }
+  
+  get ciudadNoValido(){
+    return this.forma.get('direccion.ciudad').invalid && this.forma.get('direccion.ciudad').touched
+  }
+
 crearFormulario()
 {
 this.forma = this.fb.group({
@@ -52,7 +60,13 @@ guardar(){
 
   if(this.forma.invalid){
     Object.values(this.forma.controls).forEach( control =>{
+      if(control instanceof FormGroup)
+      {
+        Object.values(control.controls ).forEach( control => control.markAsTouched() );
+      }
+      else{
       control.markAsTouched();
+      
     });
     return;
   }

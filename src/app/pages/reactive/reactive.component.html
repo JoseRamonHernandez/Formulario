@@ -45,13 +45,19 @@
         <div class="form-row col">
 
             <div class="col">
-                <input type="text" class="form-control" placeholder="Distrito" formControlName="distrito">
+                <input type="text" class="form-control" placeholder="Distrito" formControlName="distrito" [class.is-invalid]="distritoNoValido">
+                <small *ngIf="distritoNoValido" class="text-danger">
+                    ingrese 5 letras
+                </small>
             </div>
 
 
 
             <div class="col">
-                <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad">
+                <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad" [class.is-invalid]="ciudadNoValido">
+                <small *ngIf="ciudadNoValido" class="text-danger">
+                    ingrese 5 letras
+                </small>
             </div>
         </div>
     </div>
