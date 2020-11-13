@@ -13,7 +13,8 @@ usuario = {
   nombre: 'Ramon',
   apellido: 'Hernandez',
   correo: 'ramonhernandez@gmail.com',
-  pais: ''
+  pais: '',
+  genero: ''
 }
 
 paises: any[] = [];
@@ -41,7 +42,8 @@ this.paisService.getPaises()
     if(forma.invalid){
       Object.values(forma.controls).forEach( control =>{
         control.markAsTouched();
-      })
+      });
+      return;
     }
   
     console.log(forma.value);
