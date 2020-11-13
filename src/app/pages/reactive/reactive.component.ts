@@ -22,6 +22,10 @@ this.cargarDataAlFormulario();
   ngOnInit(): void {
   }
 
+  get pasatiempos(){
+    return this.forma.get('pasatiempos') as FormArray;
+  }
+
 
   get nombreNoValido(){
     return this.forma.get('nombre').invalid && this.forma.get('nombre').touched
@@ -50,7 +54,10 @@ correo: ['', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'), Val
 direccion: this.fb.group({
   distrito: ['', Validators.required],
   ciudad: ['', Validators.required]
-})
+}),
+pasatiempos: this.fb.array([
+  []
+])
 });
 }
 
