@@ -16,15 +16,15 @@ forma: FormGroup;
   constructor(private fb: FormBuilder) { 
 
 this.crearFormulario(); 
-this.cargarDataAlFormulario();
+//this.cargarDataAlFormulario();
   }
 
   ngOnInit(): void {
   }
 
-  get pasatiempos(){
+ /* get pasatiempos(){
     return this.forma.get('pasatiempos') as FormArray;
-  }
+  }*/
 
 
   get nombreNoValido(){
