@@ -15,8 +15,8 @@ forma: FormGroup;
 
   constructor(private fb: FormBuilder) { 
 
-this.crearFormulario();
-
+this.crearFormulario(); 
+this.cargarDataAlFormulario();
   }
 
   ngOnInit(): void {
@@ -54,6 +54,20 @@ direccion: this.fb.group({
 });
 }
 
+cargarDataAlFormulario(){
+
+//this.forma.setValue({
+this.forma.reset({
+nombre: 'juana',
+apellido: 'perez',
+correo: 'juanperez@gmail.com',
+direccion: {
+  distrito: 'Ottawa',
+  ciudad: 'DeHay'
+}
+});
+
+}
 
 guardar(){
   console.log(this.forma);
@@ -66,10 +80,13 @@ guardar(){
       }
       else{
       control.markAsTouched();
-      
+      }
     });
     return;
   }
-
+//Posteo de informacion
+this.forma.reset({
+  nombre: 'Sin nombre//'
+});
 }
 }
